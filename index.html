@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#111116">
+  <meta name="description" content="Kısa Akış: telefon ve bilgisayarda çalışan, yerel video ve sosyal özellikler demosu.">
+  <link rel="icon" href="./kisa-akis.svg" type="image/svg+xml">
+  <link rel="manifest" href="./manifest.json">
+  <link rel="stylesheet" href="./styles.css">
+  <title>Kısa Akış — yerel demo</title>
+</head>
+<body>
+  <main id="auth-screen" class="auth-screen">
+    <section class="auth-card" aria-labelledby="auth-title">
+      <a class="brand auth-brand" href="./" aria-label="Kısa Akış ana sayfa">
+        <span class="brand-mark">KA</span>
+        <span class="brand-name">kısa akış</span>
+      </a>
+      <p class="eyebrow">ÖZGÜN BİR KISA VİDEO DEMOSU</p>
+      <h1 id="auth-title">Akışa katıl.</h1>
+      <p class="auth-copy">Bu deneme sürümündeki hesaplar ve içerikler yalnızca kullandığın cihazda saklanır.</p>
+
+      <form id="auth-form">
+        <label id="display-name-label" class="field hidden" for="display-name">
+          Görünen ad
+          <input id="display-name" name="displayName" maxlength="32" autocomplete="name" placeholder="Nasıl hitap edelim?" disabled>
+        </label>
+        <label class="field" for="username">
+          Kullanıcı adı
+          <input id="username" name="username" maxlength="20" autocomplete="username" placeholder="ör. yusuf123" required>
+        </label>
+        <label class="field" for="password">
+          Şifre
+          <input id="password" name="password" minlength="6" autocomplete="current-password" type="password" placeholder="En az 6 karakter" required>
+        </label>
+        <p id="auth-error" class="form-error" role="alert"></p>
+        <button id="auth-submit" class="button button-primary button-wide" type="submit">Giriş yap</button>
+      </form>
+
+      <button id="auth-switch" class="button button-quiet button-wide" type="button">Yeni hesap oluştur</button>
+
+      <details class="demo-details">
+        <summary>Deneme hesabıyla giriş yap</summary>
+        <p>Her kullanıcı adı için şifre: <code>demo123</code></p>
+        <div id="demo-accounts" class="demo-accounts"></div>
+      </details>
+      <p class="local-notice"><span aria-hidden="true">●</span> YEREL DEMO · Çevrimiçi hesap veya sohbet yok</p>
+    </section>
+  </main>
+
+  <div id="app-screen" class="app-shell hidden">
+    <header class="topbar">
+      <a class="brand" href="#feed" aria-label="Kısa Akış akış sayfası">
+        <span class="brand-mark">KA</span>
+        <span class="brand-name">kısa akış</span>
+      </a>
+      <div class="topbar-actions">
+        <button id="upload-top" class="button button-primary upload-top" type="button">
+          <span aria-hidden="true">＋</span> Video paylaş
+        </button>
+        <button id="logout" class="button button-quiet logout-button" type="button">Çıkış</button>
+      </div>
+    </header>
+
+    <div class="app-body">
+      <aside class="sidebar" aria-label="Ana gezinti">
+        <div class="sidebar-label">MENÜ</div>
+        <nav id="desktop-nav" class="navigation"></nav>
+        <div class="sidebar-note">Bu denemede veriler yalnızca bu tarayıcıda saklanır.</div>
+      </aside>
+
+      <main class="main-content">
+        <div class="local-notice app-notice"><span aria-hidden="true">●</span> YEREL DENEME · Hesaplar, videolar ve mesajlar sadece bu cihazda</div>
+        <section id="page" class="page" aria-live="polite"></section>
+      </main>
+    </div>
+
+    <nav id="mobile-nav" class="mobile-nav" aria-label="Alt gezinti"></nav>
+  </div>
+
+  <input id="video-input" class="visually-hidden" type="file" accept="video/*">
+  <dialog id="caption-dialog" class="caption-dialog" aria-labelledby="caption-heading">
+    <form id="caption-form" method="dialog">
+      <h2 id="caption-heading">Videona açıklama ekle</h2>
+      <p>Video bu tarayıcıdaki yerel deneme akışına eklenir.</p>
+      <label class="field" for="video-caption-input">
+        Video açıklaması
+        <textarea id="video-caption-input" class="bio-input" maxlength="240" rows="3" placeholder="Videonda neler oluyor?"></textarea>
+      </label>
+      <div class="caption-dialog-actions">
+        <button id="caption-cancel" class="button button-quiet" type="button">İptal</button>
+        <button id="caption-confirm" class="button button-primary" type="submit">Paylaş</button>
+      </div>
+    </form>
+  </dialog>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script src="./app.js" defer></script>
+</body>
+</html>

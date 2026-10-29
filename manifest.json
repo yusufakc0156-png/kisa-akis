@@ -1,0 +1,20 @@
+{
+  "name": "Kısa Akış — yerel video demosu",
+  "short_name": "Kısa Akış",
+  "description": "Telefon ve bilgisayarda çalışan, cihaz üzerinde saklanan sosyal video demosu.",
+  "lang": "tr",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "theme_color": "#111116",
+  "background_color": "#111116",
+  "icons": [
+    {
+      "src": "./kisa-akis.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
